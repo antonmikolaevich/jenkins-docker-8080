@@ -7,45 +7,77 @@ let dataToken = querystring.stringify({
   'password': 'erebus' 
 });
 
-
-
-let data = JSON.stringify({
-    "widgetType": "statisticTrend",
-    "contentParameters": {
-      "contentFields": [
-        "statistics$executions$total",
-        "statistics$executions$passed",
-        "statistics$executions$failed",
-        "statistics$executions$skipped",
-        "statistics$defects$product_bug$pb001",
-        "statistics$defects$automation_bug$ab001",
-        "statistics$defects$system_issue$si001",
-        "statistics$defects$no_defect$nd001",
-        "statistics$defects$to_investigate$ti001"
-      ],
-      "itemsCount": "50",
-      "widgetOptions": {
-        "zoom": false,
-        "timeline": "launch",
-        "viewMode": "area-spline"
-      }
-    },
-    "filters": [
-      {
-        "value": "45",
-        "name": "DEMO_FILTER"
-      }
+let data = {
+  "widgetType": "statisticTrend",
+  "contentParameters": {
+    "contentFields": [
+      "statistics$executions$total",
+      "statistics$executions$passed",
+      "statistics$executions$failed",
+      "statistics$executions$skipped",
+      "statistics$defects$product_bug$pb001",
+      "statistics$defects$automation_bug$ab001",
+      "statistics$defects$system_issue$si001",
+      "statistics$defects$no_defect$nd001",
+      "statistics$defects$to_investigate$ti001"
     ],
-    "name": `${Math.floor(Math.random() * 1000001)}`,
-    "description": "",
-    "share": true,
-    "filterIds": [
-      "45"
-    ]
-  });
+    "itemsCount": "50",
+    "widgetOptions": {
+      "zoom": false,
+      "timeline": "launch",
+      "viewMode": "area-spline"
+    }
+  },
+  "filters": [
+    {
+      "value": "45",
+      "name": "DEMO_FILTER"
+    }
+  ],
+  "name": `${Math.floor(Math.random() * 1000001)}`,
+  "description": "",
+  "share": true,
+  "filterIds": [
+    "45"
+  ]
+}
+
+let incorrectData = {
+  "widgetType": "statisticTrend",
+  "contentParameters": {
+    "contentFields": [
+      "statistics$executions$total",
+      "statistics$executions$passed",
+      "statistics$executions$failed",
+      "statistics$executions$skipped",
+      "statistics$defects$product_bug$pb001",
+      "statistics$defects$automation_bug$ab001",
+      "statistics$defects$system_issue$si001",
+      "statistics$defects$no_defect$nd001",
+      "statistics$defects$to_investigate$ti001"
+    ],
+    "itemsCount": "50",
+    "widgetOptions": {
+      "zoom": false,
+      "timeline": "launch",
+      "viewMode": "area-spline"
+    }
+  },
+  "filters": [
+    {
+      "value": "45",
+      "name": "DEMO_FILTER"
+    }
+  ],
+  "description": "",
+  "share": true,
+  "filterIds": [
+    "45"
+  ]
+}
 
 
-  let updateWidgetData = JSON.stringify({
+  let updateWidgetData = {
     "contentParameters": {
       "contentFields": [
         "statistics$executions$total",
@@ -79,27 +111,34 @@ let data = JSON.stringify({
     "filterIds": [
       "45"
     ]
-  });
+  };
 
 
-  let dashboardData = JSON.stringify({
+  let dashboardData = {
     "description": "test_dashboard_API",
     "name": `API_dashboard ${Math.floor(Math.random() * 101)}`,
     "share": true
-  });
+  };
 
-  let updateDashboardData = JSON.stringify({
+  let incorrectDashboardData = {
+    "description": "test_dashboard_API",
+    "share": true
+  };
+
+  let updateDashboardData = {
     "description": "update_test_dashboard_API",
     "name": `update_API_dashboard ${Math.floor(Math.random() * 101)}`,
     "share": true
-  });
+  };
 
 
 module.exports = {
     dataToken,
     data,
+    incorrectData,
     updateWidgetData,
     dashboardData,
+    incorrectDashboardData,
     updateDashboardData
 }
 

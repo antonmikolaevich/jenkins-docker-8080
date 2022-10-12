@@ -10,7 +10,7 @@ const sendingRequest = async (method = "get", url, data = null, authToken = null
                 'Content-Type': 'application/json',
                 'Authorization': `bearer ${authToken}`
             },
-            data
+            data: JSON.stringify(data)
         });
         return {
             status: response.status,
@@ -18,7 +18,8 @@ const sendingRequest = async (method = "get", url, data = null, authToken = null
         }
     } catch (error) {
         return {
-            status: error.response.status
+            status: error.response.status,
+            data: error.response.data
         }
     }
 }
