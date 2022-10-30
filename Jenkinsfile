@@ -2,15 +2,7 @@
 pipeline {
   agent any
     
-  //tools {nodejs "node"}
-    
   stages {
-        
-    stage('Git') {
-      steps {
-        git 'https://github.com/antonmikolaevich/api-project'
-      }
-    }
      
     stage('Build') {
       steps {
