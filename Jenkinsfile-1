@@ -2,9 +2,8 @@ pipeline {
   agent any
   stages {
     stage('Scan - Sonarqube analysis'){
-        def scannerHome = tool 'SonarQube Scanner 4.7.0.2747';
             withSonarQubeEnv('sonarqube 9.7.0'){
-                bat '${scannerHome}/bin/sonar-scanner'
+                bat 'sonar-scanner-4.7.0.2747-windows/bin/sonar-scanner'
             }
         
     }
