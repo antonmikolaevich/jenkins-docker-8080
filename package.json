@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter mocha-junit-reporter --reporter-options mochaFile=./report/reports.xml",
+    "test": "mocha --reporter mocha-junit-reporter",
     "lint": "eslint .",
     "prepare": "husky install",
     "precommit": "lint-staged"

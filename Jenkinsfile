@@ -15,9 +15,9 @@ pipeline {
       }
     }
   }
-  post {
-        always {
-            junit './report/reports.xml'
-        }
-    }
+   post {
+      always {
+        junit '**/reports/junit/*.xml'
+      }
+   } 
 }
