@@ -4,7 +4,7 @@ pipeline {
     stage('Scan - Sonarqube analysis'){
         steps{
             withSonarQubeEnv('sonarqube 9.7.0'){
-                bat 'sonar-scanner-4.7.0.2747-windows/bin/sonar-scanner'
+                bat 'sonar-scanner.bat -D"sonar.projectKey=api-jenkins-sonarqube" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.login=sqp_ca0e35003f4af4e70656518667cab3b04187aca8"'
             }
         }
         
