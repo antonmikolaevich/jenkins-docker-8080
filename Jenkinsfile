@@ -15,4 +15,9 @@ pipeline {
       }
     }
   }
+  post {
+        always {
+            junit './report/reports.xml'
+        }
+    }
 }
