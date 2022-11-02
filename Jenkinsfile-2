@@ -12,12 +12,8 @@ pipeline {//for jenkins -docker integration build image for the beginning
         steps {
             script {
             bat "docker run  --name test-container jenkinsdocker01"
-        }
-        }
-    }
-    stage("Test Results"){
-        steps{
             junit allowEmptyResults: true, testResults: './report/test-results-report.xml'
+        }
         }
     }
     stage ("Delete Container"){
