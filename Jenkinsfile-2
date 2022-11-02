@@ -12,7 +12,6 @@ pipeline {//for jenkins -docker integration build image for the beginning
         steps {
             script {
             bat "docker run  --name test-container jenkinsdocker01"
-            junit "reports/report.xml"
         }
         }
     }
@@ -31,4 +30,9 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
     }
     }
+    post {
+      always {
+        junit allowEmptyResults: true, testResults: '*.xml'
+      }
+   }
 }
