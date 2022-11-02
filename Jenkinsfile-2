@@ -15,10 +15,19 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
         }
     }
+    stage ("Stop Container"){
+        steps {
+            script {
+            bat "docker stop test-container"
+        }
+        }
     }
-    post {
-      always {
-        junit allowEmptyResults: true, testResults: '*.xml'
-      }
-   }
+    stage ("Delete Container"){
+        steps {
+            script {
+            bat "docker rm test-container"
+        }
+        }
+    }
+    }
 }
