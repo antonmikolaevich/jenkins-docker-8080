@@ -11,7 +11,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
     stage ("Run Docker Image"){
         steps {
             script {
-            bat "docker exec -it jenkinsdocker01"
+            bat "docker run -it jenkinsdocker01"
         }
         }
     }
