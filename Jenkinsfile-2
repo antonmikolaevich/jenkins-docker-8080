@@ -17,7 +17,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
     }
     stage("Test Results"){
         steps{
-            junit allowEmptyResults: true, testResults: 'src/report/*.xml'
+            junit allowEmptyResults: true, testResults: './report/test-results-report.xml'
         }
     }
     stage ("Delete Container"){
