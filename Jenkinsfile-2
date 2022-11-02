@@ -1,0 +1,24 @@
+pipeline {//for jenkins -docker integration build image for the beginning
+    agent any
+    stages {
+    stage ("Build Docker Image"){
+        steps {
+            script {
+            bat "docker build -tag demo-report-test-image-jenkinsi ."
+        }
+        }
+    }
+    stage ("Run Docker Image"){
+        steps {
+            script {
+            bat "docker run -it demo-report-test-image-jenkinsi"
+        }
+        }
+    }
+}
+    post {
+      always {
+        junit allowEmptyResults: true, testResults: '*.xml'
+      }
+   }
+}
