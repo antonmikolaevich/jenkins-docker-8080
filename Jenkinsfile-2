@@ -4,14 +4,14 @@ pipeline {//for jenkins -docker integration build image for the beginning
     stage ("Build Docker Image"){
         steps {
             script {
-            bat "docker build -tag demo-report-test-image-jenkinsi ."
+            bat "docker build --tag jenkinsdocker01 ."
         }
         }
     }
     stage ("Run Docker Image"){
         steps {
             script {
-            bat "docker run -it demo-report-test-image-jenkinsi"
+            bat "docker run -it jenkinsdocker01"
         }
         }
     }

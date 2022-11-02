@@ -14,7 +14,7 @@ describe("API tests in ReportPortal", () => {
     let dashboardId;
 
 
-    it.only("API test - get token", async () => {
+    it("API test - get token", async () => {
         const authToken = await getToken("post", dataToken);
         expect(typeof authToken.data.access_token).to.equal('string');
         expect(authToken.data.access_token).not.to.empty;
@@ -23,7 +23,7 @@ describe("API tests in ReportPortal", () => {
     })
 
 
-    it.only("API tests - create the widget", async() => {
+    it("API tests - create the widget", async() => {
         const createWidget = await sendingRequest("post", "default_personal/widget", data, `${authorizationToken}`);
         createdWidgetId = createWidget.data.id;
         const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
@@ -33,7 +33,7 @@ describe("API tests in ReportPortal", () => {
     })
 
 
-    it.only("API tests - update the widget", async() => {
+    it("API tests - update the widget", async() => {
         const updateWidget = await sendingRequest("put", `default_personal/widget/${createdWidgetId}`, updateWidgetData, `${authorizationToken}`);
         const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(getWidget.data.name).to.equal(updateWidgetData.name);
@@ -42,7 +42,7 @@ describe("API tests in ReportPortal", () => {
     })
 
 
-    it.only("API tests - delete the widget", async() => {
+    it("API tests - delete the widget", async() => {
         const deleteWidget = await sendingRequest("delete", `default_personal/dashboard/16/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(deleteWidget.status).to.equal(200);
         const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
