@@ -15,6 +15,13 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
         }
     }
+    stage ("Delete Container"){
+        steps {
+            script {
+            bat "docker run --rm test-container"
+        }
+        }
+    }
 }
     post {
       always {

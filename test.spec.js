@@ -50,36 +50,6 @@ describe("API tests in ReportPortal", () => {
         expect(getWidget.data.message).to.equal(`Widget with ID '${createdWidgetId}' not found on project 'default_personal'. Did you use correct Widget ID?`);
     })
 
-
-    it("API tests - create the dashboard", async() => {
-        const createDashboard = await sendingRequest("post", 'SUPERADMIN_PERSONAL/dashboard', dashboardData, `${authorizationToken}`);
-        dashboardId = createDashboard.data.id;
-        expect(createDashboard.status).to.equal(201);
-        const getDashboard = await sendingRequest("get", `SUPERADMIN_PERSONAL/dashboard/${dashboardId}`, null, `${authorizationToken}`);
-        expect(getDashboard.status).to.equal(200);
-        expect(getDashboard.data.description).to.equal(dashboardData.description);
-        expect(getDashboard.data.name).to.equal(dashboardData.name);
-    })
-
-
-    it("API tests - update the dashboard", async () => {
-        const updateDashboard = await sendingRequest("put", `SUPERADMIN_PERSONAL/dashboard/${dashboardId}`, updateDashboardData, `${authorizationToken}`);
-        expect(updateDashboard.status).to.equal(200);
-        const getDashboard = await sendingRequest("get", `SUPERADMIN_PERSONAL/dashboard/${dashboardId}`, null, `${authorizationToken}`);
-        expect(getDashboard.status).to.equal(200);
-        expect(getDashboard.data.description).to.equal(updateDashboardData.description);
-        expect(getDashboard.data.name).to.equal(updateDashboardData.name);
-    })
-
-
-    it("API tests - delete the dashboard", async() => {
-        const updateDashboard = await sendingRequest("delete", `SUPERADMIN_PERSONAL/dashboard/${dashboardId}`, null, `${authorizationToken}`);
-        expect(updateDashboard.status).to.equal(200);
-        const getDashboard = await sendingRequest("get", `SUPERADMIN_PERSONAL/dashboard/${dashboardId}`, null, `${authorizationToken}`);
-        expect(getDashboard.status).to.equal(404);
-        expect(getDashboard.data.message).to.equal(`Dashboard with ID '${dashboardId}' not found on project 'superadmin_personal'. Did you use correct Dashboard ID?`);
-    })
-
     it("API tests - create the widget with incorrect request data", async () => {
         const createWidget = await sendingRequest("post", "superadmin_personal/widget", incorrectData, `${authorizationToken}`);
         expect(createWidget.status).to.equal(400);
