@@ -24,9 +24,9 @@ describe("API tests in ReportPortal", () => {
 
 
     it("API tests - create the widget", async() => {
-        const createWidget = await sendingRequest("post", "superadmin_personal/widget", data, `${authorizationToken}`);
+        const createWidget = await sendingRequest("post", "default_personal/widget", data, `${authorizationToken}`);
         createdWidgetId = createWidget.data.id;
-        const getWidget = await sendingRequest("get", `superadmin_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
+        const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(getWidget.data.name).to.equal(data.name);
         expect(getWidget.data.description).to.equal(data.description);
         expect(createWidget.status).to.equal(201);
@@ -34,8 +34,8 @@ describe("API tests in ReportPortal", () => {
 
 
     it("API tests - update the widget", async() => {
-        const updateWidget = await sendingRequest("put", `superadmin_personal/widget/${createdWidgetId}`, updateWidgetData, `${authorizationToken}`);
-        const getWidget = await sendingRequest("get", `superadmin_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
+        const updateWidget = await sendingRequest("put", `default_personal/widget/${createdWidgetId}`, updateWidgetData, `${authorizationToken}`);
+        const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(getWidget.data.name).to.equal(updateWidgetData.name);
         expect(getWidget.data.description).to.equal(updateWidgetData.description);
         expect(updateWidget.status).to.equal(200);
@@ -43,11 +43,11 @@ describe("API tests in ReportPortal", () => {
 
 
     it("API tests - delete the widget", async() => {
-        const deleteWidget = await sendingRequest("delete", `superadmin_personal/dashboard/58/${createdWidgetId}`, null, `${authorizationToken}`);
+        const deleteWidget = await sendingRequest("delete", `default_personal/dashboard/16/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(deleteWidget.status).to.equal(200);
-        const getWidget = await sendingRequest("get", `superadmin_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
+        const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(getWidget.status).to.equal(404);
-        expect(getWidget.data.message).to.equal(`Widget with ID '${createdWidgetId}' not found on project 'superadmin_personal'. Did you use correct Widget ID?`);
+        expect(getWidget.data.message).to.equal(`Widget with ID '${createdWidgetId}' not found on project 'default_personal'. Did you use correct Widget ID?`);
     })
 
 

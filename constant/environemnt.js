@@ -1,4 +1,4 @@
-const ENV_URL = 'http://localhost:8080';
+const ENV_URL = 'https://demo.reportportal.io';
 
 module.exports = {
     ENV_URL
