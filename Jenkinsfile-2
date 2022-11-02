@@ -25,7 +25,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
     }
     post {
       always {
-        junit allowEmptyResults: true, testResults: '*.xml'
+        junit allowEmptyResults: true, testResults: '**/test-results/*.xml'
       }
    }
 }
