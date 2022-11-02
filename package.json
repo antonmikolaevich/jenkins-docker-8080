@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test.spec.js --reporter mocha-simple-html-reporter --reporter-options output=./reports/report.html",
+    "test": "mocha ./test.spec.js --reporter mocha-simple-html-reporter --reporter-options output=report.html",
     "lint": "eslint .",
     "prepare": "husky install",
     "precommit": "lint-staged"
