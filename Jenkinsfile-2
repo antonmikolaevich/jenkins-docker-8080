@@ -18,11 +18,4 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
     }
     }
-    post{
-        always{
-            script {
-                bat "docker rm test-container"
-            }
-        }
-    }
 }
