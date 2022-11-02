@@ -13,6 +13,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
             script {
             bat "docker run  --name test-container jenkinsdocker01"
             junit allowEmptyResults: true, testResults: '.xml'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'html-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
         }
     }
