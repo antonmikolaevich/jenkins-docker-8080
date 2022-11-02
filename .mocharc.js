@@ -1,7 +1,7 @@
 module.exports = {
     spec: "./test.spec.js",
     //require: "chai/register-expect.js",
-    reporter: ["mocha-junit-reporter"],
+    reporter: ["spec"],
     reporterOptions: {
         mochaFile: "./report/reports.xml"
     }
