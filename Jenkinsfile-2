@@ -12,7 +12,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
         steps {
             script {
             bat "docker run  --name test-container jenkinsdocker01"
-            junit allowEmptyResults: true, testResults: '*.xml'
+            junit allowEmptyResults: true, testResults: '.xml'
         }
         }
     }
