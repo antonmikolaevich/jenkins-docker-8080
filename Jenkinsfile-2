@@ -15,20 +15,23 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
         }
     }
-    // stage ("Stop Container"){
-    //     steps {
-    //         script {
-    //         bat "docker stop test-container"
-    //     }
-    //     }
-    // }
-    // stage ("Delete Container"){
-    //     steps {
-    //         script {
-    //         bat "docker rm test-container"
-    //     }
-    //     }
-    // }
+    stage("Test Results"){
+        junit 'test-results.xml'
+    }
+    stage ("Stop Container"){
+        steps {
+            script {
+            bat "docker stop test-container"
+        }
+        }
+    }
+    stage ("Delete Container"){
+        steps {
+            script {
+            bat "docker rm test-container"
+        }
+        }
+    }
     }
     post {
       always {
