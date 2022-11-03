@@ -23,6 +23,13 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
         }
     }
+    stage ("Inspect Volume"){
+        steps {
+            script {
+                bat "docker volume inspect test-volume"
+            }
+        }
+    }
     }
     post {
         always {
