@@ -11,7 +11,8 @@ pipeline {//for jenkins -docker integration build image for the beginning
     stage ("Run Docker Image"){
         steps {
             script {
-            bat "docker run jenkinsdocker01"
+            //bat "docker run jenkinsdocker01"
+            bat "docker run -it -v ./report.xml:/volumeFirst jenkinsdocker01"
             junit (allowEmptyResults: true, testResults: '*.xml')
         }
         }
