@@ -8,11 +8,18 @@ pipeline {//for jenkins -docker integration build image for the beginning
         }
         }
     }
+    stage("Create Volume"){
+        steps {
+            script {
+                bat "docker volume create test-volume"
+            }
+        }
+    }
     stage ("Run Docker Image"){
         steps {
             script {
-            bat "docker run jenkinsdocker01"
-            junit (allowEmptyResults: true, testResults: '/data/**/*.xml')
+            bat "docker run -v test-volume:/data jenkinsdocker01"
+            junit (allowEmptyResults: true, testResults: '*.xml')
         }
         }
     }
