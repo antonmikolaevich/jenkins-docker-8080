@@ -4,29 +4,23 @@ pipeline {//for jenkins -docker integration build image for the beginning
     stage ("Build Docker Image"){
         steps {
             script {
-            bat 'docker build --tag jenkinsdocker01 .' 
-           // bat 'docker login'   
-            bat "docker run --name temp-cont jenkinsdocker01"
-            bat "docker cp temp-cont:/api-project ."
-            bat 'docker rm temp-cont'
+            bat "docker build --tag jenkinsdocker01 ."
+        }
+        }
+    }
+    stage ("Run Docker Image"){
+        steps {
+            script {
+            //bat "docker run jenkinsdocker01"
+            bat "docker run -it -v ${PWD}/api-project:/api-project --name jenkinsdocker01"
             junit (allowEmptyResults: true, testResults: '*.xml')
         }
         }
     }
-    // stage ("Run Docker Image"){
-    //     steps {
-    //         script {
-    //         //bat "docker run jenkinsdocker01"
-    //         bat "docker run -d --name=jenkinsdocker01 -v nginx-vol:/usr/share/nginx/html:ro"
-    //         junit (allowEmptyResults: true, testResults: '*.xml')
-    //     }
-    //     }
-    // }
     }
     post {
         always {
             junit (allowEmptyResults: true, testResults: '*.xml')
-            bat 'docker rm temp-cont'
         }
     }
 }
