@@ -4,7 +4,7 @@ pipeline {//for jenkins -docker integration build image for the beginning
     stage ("Build Docker Image"){
         steps {
             script {
-            bat 'docker build --tag jenkinsdocker01'    
+            bat 'docker build --tag jenkinsdocker01 .'    
             bat "docker run --name temp-cont jenkisdocker01"
             bat "docker cp temp-cont:/api-project ."
             bat 'docker rm temp-cont'
