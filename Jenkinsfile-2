@@ -12,8 +12,8 @@ pipeline {//for jenkins -docker integration build image for the beginning
         steps {
             script {
             //bat "docker run jenkinsdocker01"
-            bat "docker run -it -v D:/Automation Program Global - Advanced/Homework 7 - CI-CD/demo-reportportal-api-project:/api-project --name jenkinsdocker01"
-            junit (allowEmptyResults: true, testResults: 'D:/Automation Program Global - Advanced/Homework 7 - CI-CD/demo-reportportal-api-project/*.xml')
+            bat "docker run -it -v $(pwd):/api-project --name jenkinsdocker01"
+            junit (allowEmptyResults: true, testResults: '*.xml')
         }
         }
     }
