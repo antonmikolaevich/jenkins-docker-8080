@@ -1,6 +1,6 @@
 module.exports = {
     spec: "./test.spec.js",
-    reporter: ["mocha-junit-reporter"],
+    reporter: ["spec"],
     reporterOptions: {
        mochaFile: "./reporter01/reports.xml"
     }

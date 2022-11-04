@@ -114,7 +114,7 @@ let incorrectData = {
     },
     "filters": [
       {
-        "value": "42",
+        "value": "30",
         "name": "test-filter"
       }
     ],
@@ -122,7 +122,7 @@ let incorrectData = {
     "description": "",
     "share": true,
     "filterIds": [
-      "42"
+      "30"
     ]
   }
 

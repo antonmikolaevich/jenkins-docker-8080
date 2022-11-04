@@ -43,7 +43,7 @@ describe("API tests in ReportPortal", () => {
 
 
     it("API tests - delete the widget", async() => {
-        const deleteWidget = await sendingRequest("delete", `default_personal/dashboard/16/${createdWidgetId}`, null, `${authorizationToken}`);
+        const deleteWidget = await sendingRequest("delete", `default_personal/dashboard/29/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(deleteWidget.status).to.equal(200);
         const getWidget = await sendingRequest("get", `default_personal/widget/${createdWidgetId}`, null, `${authorizationToken}`);
         expect(getWidget.status).to.equal(404);
