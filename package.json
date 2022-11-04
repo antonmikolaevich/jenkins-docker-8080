@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test.spec.js --reporter mocha-junit-reporter",
+    "test": "mocha ./test.spec.js --reporter mocha-junit-reporter --reporter-options mochaFile=./reportFolderDockerJenkins/fileReportJenkinsDocker.xml",
     "lint": "eslint .",
     "prepare": "husky install",
     "precommit": "lint-staged"
