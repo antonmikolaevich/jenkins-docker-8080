@@ -50,16 +50,4 @@ describe("API tests in ReportPortal", () => {
         expect(getWidget.data.message).to.equal(`Widget with ID '${createdWidgetId}' not found on project 'default_personal'. Did you use correct Widget ID?`);
     })
 
-    it("API tests - create the widget with incorrect request data", async () => {
-        const createWidget = await sendingRequest("post", "superadmin_personal/widget", incorrectData, `${authorizationToken}`);
-        expect(createWidget.status).to.equal(400);
-        expect(createWidget.data.message).to.contain('Incorrect Request');
-    })
-
-    it("API tests - create the dashboard with incorrect request data", async () => {
-        const createDashboard = await sendingRequest("post", 'SUPERADMIN_PERSONAL/dashboard', incorrectDashboardData, `${authorizationToken}`);
-        expect(createDashboard.status).to.equal(400);
-        expect(createDashboard.data.message).to.contain('Incorrect Request');
-    })
-
 });
