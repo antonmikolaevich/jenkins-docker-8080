@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="2.632" tests="6" failures="3">
+  <testsuite name="Root Suite" timestamp="2022-11-04T14:10:10" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="API tests in ReportPortal" timestamp="2022-11-04T14:10:10" tests="6" file="D:\Automation Program Global - Advanced\Homework 7 - CI-CD\demo-reportportal-api-project\test.spec.js" time="2.631" failures="3">
+    <testcase name="API tests in ReportPortal API test - get token" time="0.722" classname="API test - get token">
+    </testcase>
+    <testcase name="API tests in ReportPortal API tests - create the widget" time="0.615" classname="API tests - create the widget">
+      <failure message="expected undefined to equal &apos;232863&apos;" type="AssertionError"><![CDATA[AssertionError: expected undefined to equal '232863'
+    at Context.<anonymous> (test.spec.js:30:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+      + expected - actual:  failed to generate Mocha diff
+]]></failure>
+    </testcase>
+    <testcase name="API tests in ReportPortal API tests - update the widget" time="0.548" classname="API tests - update the widget">
+      <failure message="expected undefined to equal &apos;669029&apos;" type="AssertionError"><![CDATA[AssertionError: expected undefined to equal '669029'
+    at Context.<anonymous> (test.spec.js:39:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+      + expected - actual:  failed to generate Mocha diff
+]]></failure>
+    </testcase>
+    <testcase name="API tests in ReportPortal API tests - delete the widget" time="0.241" classname="API tests - delete the widget">
+      <failure message="expected 400 to equal 200" type="AssertionError"><![CDATA[AssertionError: expected 400 to equal 200
+    at Context.<anonymous> (test.spec.js:47:40)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+
+      + expected - actual
+
+      -400
+      +200
+      ]]></failure>
+    </testcase>
+    <testcase name="API tests in ReportPortal API tests - create the widget with incorrect request data" time="0.227" classname="API tests - create the widget with incorrect request data">
+    </testcase>
+    <testcase name="API tests in ReportPortal API tests - create the dashboard with incorrect request data" time="0.268" classname="API tests - create the dashboard with incorrect request data">
+    </testcase>
+  </testsuite>
+</testsuites>
